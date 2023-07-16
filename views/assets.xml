@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="pos_product_weight_hide assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_hide_product_scale_by_line/static/src/js/order.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

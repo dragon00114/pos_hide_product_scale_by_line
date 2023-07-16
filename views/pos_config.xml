@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="pos_config_receipt_scale_avg">
+            <field name="name">pos.config.receipt.scale_avg.inh</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/div[@class='row mt16 o_settings_container'][2]"
+                       position="after">
+                    <h2>Average Scale Reading</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div id="allow_avg_scale" class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="allow_avg_scale"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="allow_avg_scale" string="Allow Auto scale feature"/><br/>
+                                <div class="text-muted">
+                                    Allow stable scale reading automatic process?
+                                </div>
+                            </div>
+                        </div>
+                        <div id="no_of_reading_scale" class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible': [('allow_avg_scale', '=', False)]}">
+                            <div class="o_setting_right_pane">
+                                <label for="no_of_reading" string="Number of Reading"/><br/>
+                                <field name="no_of_reading"/>
+                                <div class="text-muted">
+                                    Number of automatic scale read for product
+                                </div>
+                            </div>
+                        </div>
+                        <div id="delay_reading_scale" class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible': [('allow_avg_scale', '=', False)]}">
+                            <div class="o_setting_right_pane">
+                                <label for="delay_reading" string="Delay Between reading (Milliseconds)"/><br/>
+                                <field name="delay_reading"/>
+                                <div class="text-muted">
+                                    Delay Between reading (Milliseconds)
+                                </div>
+                            </div>
+                        </div>
+                        <div id="diff_allow_scale" class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible': [('allow_avg_scale', '=', False)]}">
+                            <div class="o_setting_right_pane">
+                                <label for="diff_allow" string="Allowed Difference Scale"/><br/>
+                                <field name="diff_allow"/>
+                                <div class="text-muted">
+                                    Allow maximum difference (between average scale and additional scale) scale to add product to cart
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
